@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to HTML Converter</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Highlight.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <style>
+        #markdown-output {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-3">Markdown to HTML Converter</h1>
+        <div id="markdown-output"></div>
+    </div>
+
+    <!-- Marked.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.10/marked.min.js"></script>
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        // Function to fetch and process the markdown file
+        async function loadMarkdown() {
+            try {
+                // Fetch the markdown file (input.md)
+                const response = await fetch('input.md');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const markdownText = await response.text();
+
+                // Convert markdown to HTML using marked.js
+                const html = marked.parse(markdownText);
+
+                // Get the output element
+                const outputElement = document.getElementById('markdown-output');
+
+                // Set the HTML content
+                outputElement.innerHTML = html;
+
+                // Highlight code blocks using highlight.js
+                document.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightBlock(block);
+                });
+
+            } catch (error) {
+                console.error('Error loading or processing markdown:', error);
+                document.getElementById('markdown-output').innerHTML = '<div class="alert alert-danger">Error loading markdown.  Check the console for details.</div>';
+            }
+        }
+
+        // Call the function to load and render the markdown
+        loadMarkdown();
+    </script>
+    <!-- Bootstrap JS (optional, for some Bootstrap features) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

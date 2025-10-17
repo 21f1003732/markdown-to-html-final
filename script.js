@@ -1,0 +1,1 @@
+// This script is not needed as all functionality is in index.html
