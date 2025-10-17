@@ -1,25 +1,35 @@
 # Markdown to HTML Converter
 
-This project is a simple web application that converts a markdown file (input.md) to HTML and renders it in a web page.
+This is a simple web application that converts Markdown text to HTML and displays it in a web browser. It uses vanilla HTML, CSS, and JavaScript, along with the Marked.js and Highlight.js libraries.
 
 ## Features
 
-*   Converts markdown to HTML using marked.js.
-*   Highlights code blocks using highlight.js.
-*   Uses Bootstrap for basic styling and layout.
-*   Handles errors gracefully.
+*   Displays the original Markdown text.
+*   Renders the Markdown to HTML.
+*   Provides tabs to switch between the Markdown source and the rendered HTML.
+*   Highlights code blocks in the rendered HTML.
+*   Uses Bootstrap for styling.
+
+## Technologies Used
+
+*   HTML
+*   CSS
+*   JavaScript
+*   Bootstrap 5
+*   Marked.js
+*   Highlight.js
 
 ## How to Run
 
-1.  Save `index.html`, `input.md` and (optionally) `style.css` in the same directory.
-2.  Open `index.html` in your web browser.
+1.  Save the `index.html` file.
+2.  Create a file named `input.md` in the same directory and add your Markdown content.
+3.  Open `index.html` in your web browser.
 
-## Dependencies
+## File Structure
 
-*   marked.js (CDN)
-*   highlight.js (CDN)
-*   Bootstrap 5 (CDN)
-
-## License
-
-MIT
+```
+markdown-to-html-final/
+├── index.html       # Main HTML file
+├── input.md         # Markdown input file
+└── README.md        # Project documentation
+```

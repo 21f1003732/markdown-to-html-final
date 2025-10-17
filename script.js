@@ -1,1 +1,1 @@
-// This script is not needed as all functionality is in index.html
+// No separate script file needed for this example

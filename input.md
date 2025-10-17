@@ -1,17 +1,7 @@
-# Hello, World!
+# Updated Markdown
 
-This is a simple markdown file.
+This is updated.
 
-## Code Example
-
-```javascript
-function greet(name) {
-  console.log(`Hello, ${name}!`);
-}
-
-greet('World');
+```python
+print("hello")
 ```
-
-## Another Heading
-
-Some more text here.
